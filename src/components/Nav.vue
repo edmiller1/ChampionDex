@@ -1,5 +1,5 @@
 <template>
-  <div class="h-20 shadow-2xl">
+  <div class="w-full shadow-2xl bg-white">
     <div class="flex justify-between items-center py-3">
       <div class="mx-10">
         <input
@@ -11,7 +11,11 @@
         </div>
       </div>
       <div class="mx-10">
-        <span class="text-gray-600 text-4xl">ChampionDex</span>
+        <router-link
+          to="/champions"
+          tag="span"
+          class="text-gray-600 text-4xl cursor-pointer"
+        >ChampionDex</router-link>
       </div>
     </div>
   </div>
@@ -22,9 +26,6 @@ export default {};
 </script>
 
 <style scoped>
-::root {
-  background: #f7fafc;
-}
 ::placeholder {
   color: #718096;
   opacity: 1;
@@ -38,7 +39,7 @@ export default {};
 }
 
 input {
-  transition: 0.2s ease;
+  transition: 0.1s ease;
 }
 
 input:focus {

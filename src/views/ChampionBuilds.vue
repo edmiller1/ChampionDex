@@ -1,5 +1,7 @@
 <template>
-  <div>Nothing to see here</div>
+  <div>
+    <h1 class="text-gray-100">Champion Builds</h1>
+  </div>
 </template>
 
 <script>
