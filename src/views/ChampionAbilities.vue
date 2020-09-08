@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1 class="text-gray-100">Champion Abilities</h1>
-    <span class="text-gray-100">{{ champion.name }}</span>
   </div>
 </template>
 
@@ -15,5 +14,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>

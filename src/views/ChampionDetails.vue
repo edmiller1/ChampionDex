@@ -1,53 +1,46 @@
 <template>
   <div>
     <Navigation />
-    <div class="mx-10 absolute z-10 flex flex-col">
+    <div class="absolute z-10 flex flex-col">
       <div class="flex">
         <img
           :src="spriteURL + champion.image.full"
           class="w-32 h-32 rounded-full border-4 border-yellow-600 ml-20 my-5"
         />
         <div class="mt-8 px-10 flex flex-col">
-          <span class="text-3xl text-gray-100 uppercase font-bold">{{ champion.name }}</span>
+          <div class="flex items-center">
+            <img :src="require(`../assets/images/${champion.tags[0]}.png`)" class="w-10 h-10" />
+            <span class="text-3xl text-gray-100 uppercase font-bold px-2">{{ champion.name }}</span>
+          </div>
           <span class="text-xl text-yellow-600 uppercase font-semibold">{{ champion.title }}</span>
         </div>
       </div>
-      <div id="tabs" class="mx-16">
-        <ul class="flex text-gray-100">
-          <router-link
-            :to="{path: currentRoute, params:{ champion: champion }}"
-            tag="li"
-            class="mx-10"
-          >Overview</router-link>
-          <router-link
-            :to="{ name: 'ChampionAbilities', params: { champion: champion } }"
-            tag="li"
-            class="mx-10"
-          >Abilities</router-link>
-          <router-link to="/builds" tag="li" class="mx-10">Builds</router-link>
-          <router-link to="/skins" tag="li" class="mx-10">Skins</router-link>
-        </ul>
-      </div>
-      <div>
-        <router-view />
+      <div id="Main" class="flex">
+        <div class="w-1/3 ml-24 mt-16">
+          <p class="text-gray-100">{{ champion.lore }}</p>
+        </div>
+        <div class="w-1/2 flex justify-center">
+          <InfoChart :chartData="champion" :options="options" class="w-1/2" />
+        </div>
       </div>
     </div>
     <div class="image">
-      <img :src="splashImage + champion.name + '_0.jpg'" style="height: 90vh; width: 100%;" />
+      <img :src="splashImage + id + '_0.jpg'" style="height: 90vh; width: 100%;" />
     </div>
   </div>
 </template>
 
 <script>
 import Navigation from "../components/ChampionNav.vue";
+import InfoChart from "../components/InfoChart.vue";
 export default {
   components: {
-    Navigation
+    Navigation,
+    InfoChart
   },
   data() {
     return {
-      currentRoute: this.$router.history.current.path,
-      name: this.$route.params.name,
+      id: this.$route.params.id,
       champion: "",
       splashImage:
         "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/",
@@ -59,7 +52,7 @@ export default {
       this.$http
         .get(
           "http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/champion/" +
-            this.name +
+            this.id +
             ".json"
         )
         .then(response => {
@@ -93,7 +86,7 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
 </style>

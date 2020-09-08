@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="{ name: 'ChampionDetails', params: { name: champ.name } }"
+    :to="{ name: 'ChampionDetails', params: { id: champ.id } }"
     tag="div"
     class="champBox w-1/6 border-2 border-gray-300 rounded-lg pt-5 pb-10 px-10 my-2 mx-2 shadow-lg"
   >
