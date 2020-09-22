@@ -10,11 +10,12 @@ export default {};
 </script>
 
 <style>
-#app::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0.5rem;
 }
 
-#app::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #2d3748;
+  border-radius: 10px;
 }
 </style>

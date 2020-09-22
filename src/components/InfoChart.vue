@@ -13,6 +13,7 @@ export default {
   mounted() {
     // Overwriting base render method with actual data.
     Chart.defaults.global.defaultFontColor = "#f7fafc";
+    Chart.defaults.global.easing = "easeInExpo";
     this.renderChart({
       labels: ["Attack", "Defense", "Magic"],
       datasets: [
