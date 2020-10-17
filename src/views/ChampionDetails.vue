@@ -124,35 +124,23 @@
         <ChampionBuilds :champion="champion" />
       </div>
     </div>
-    <div id="championSkins" class="mx-24 m-auto border-2 border-gray-900 rounded-lg mb-40">
-      <div class="px-5 py-3">
-        <span class="uppercase text-xl border-b-2 border-blue-600">Skins</span>
-      </div>
-      <div class>
-        <img :src="splashImage + id + '_' + champion.skins[0].num + '.jpg'" />
-      </div>
-      <div class="flex">
-        <carousel-3d height="95" width="200">
-          <slide v-for="(skin, index) in champion.skins" :key="index" :index="index">
-            <img :src="splashImage + id + '_' + skin.num + '.jpg'" class="bg-gray-900 h-24" />
-          </slide>
-        </carousel-3d>
-      </div>
-    </div>
+    <ChampionSkins :champion="champion" />
   </div>
 </template>
 
 <script>
 import Navigation from "../components/ChampionNav.vue";
 import InfoChart from "../components/InfoChart.vue";
-import ChampionAbilities from "../views/ChampionAbilities.vue";
+//import ChampionAbilities from "../views/ChampionAbilities.vue";
 import ChampionBuilds from "../views/ChampionBuilds.vue";
+import ChampionSkins from "../views/ChampionSkins.vue";
 export default {
   components: {
     Navigation,
     InfoChart,
-    ChampionAbilities,
-    ChampionBuilds
+    //ChampionAbilities,
+    ChampionBuilds,
+    ChampionSkins
   },
   data() {
     return {

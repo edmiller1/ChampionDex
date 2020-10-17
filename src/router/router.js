@@ -8,7 +8,7 @@ import ChampionQ from '../components/ChampionQ.vue';
 import ChampionW from '../components/ChampionW.vue';
 import ChampionE from '../components/ChampionE.vue';
 import ChampionR from '../components/ChampionR.vue';
-import SkinSplash from '../components/skinSplash.vue';
+import SkinSplash from '../components/SkinSplash.vue';
 
 Vue.use(VueRouter);
 
@@ -34,31 +34,31 @@ const routes = [{
         props: true
       },
       {
-        path: '/Q',
+        path: '/:id/Q',
         name: 'Q',
         component: ChampionQ,
         props: true
       },
       {
-        path: '/W',
+        path: '/:id/W',
         name: 'W',
         component: ChampionW,
         props: true
       },
       {
-        path: '/E',
+        path: '/:id/E',
         name: 'E',
         component: ChampionE,
         props: true
       },
       {
-        path: '/R',
+        path: '/:id/R',
         name: 'R',
         component: ChampionR,
         props: true
       },
       {
-        path: '/skin/:name',
+        path: '/:id/:num',
         name: 'SkinSplash',
         component: SkinSplash,
         props: true
